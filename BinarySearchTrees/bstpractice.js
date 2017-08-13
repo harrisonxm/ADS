@@ -50,6 +50,7 @@ BST.prototype.contains = function(value){
 
 //indorder - node touched from least to greatest
 BST.prototype.depthFirstTraversal = function(iteratorFunc){
+
   if(this.left){
     this.left.depthFirstTraversal(iteratorFunc)
   }
