@@ -1,3 +1,7 @@
+//Performance
+// Look up: O(log n)
+
+
 
 function BST(value){
   this.value = value;
@@ -83,6 +87,7 @@ BST.prototype.depthFirstTraversal = function(iteratorFunc){
   iteratorFunc(this.value)
 }
 
+//traversing level by level
 BST.prototype.breadthFirstTraversal = function(iteratorFunc){
   var queue = [this];
   while(queue.length){
@@ -94,6 +99,24 @@ BST.prototype.breadthFirstTraversal = function(iteratorFunc){
     if(treeNode.right){
       queue.push(treeNode.right)
     }
+  }
+}
+
+BST.prototype.getMinVal = function(){
+  if(this.left){
+    return this.left.getMinVal();
+  }
+  else{
+    return this.value;
+  }
+}
+
+BST.prototype.getMaxVal = function(){
+  if(this.right){
+    return this.right.getMaxVal();
+  }
+  else{
+    return this.value;
   }
 }
 
@@ -113,5 +136,7 @@ bst.insert(10)
 function log(node){
   console.log(node.value)
 }
+console.log(bst.getMinVal())
+console.log(bst.getMaxVal())
 
 bst.breadthFirstTraversal(log)
