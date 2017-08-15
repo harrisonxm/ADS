@@ -1,6 +1,6 @@
-var doSearch = function(array, target) {
-	var min = 0;
-	var max = array.length - 1;
+const binarySearch = function(array, target) {
+	let min = 0;
+	let max = array.length - 1;
     var guess;
     while(min <= max){
         guess = Math.floor((max + min)/2)
@@ -15,13 +15,12 @@ var doSearch = function(array, target) {
         }
     }
 
-
-
-
 	return -1;
 };
 
-var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
+let primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
 		41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-var result = doSearch(primes, 73);
+let result = binarySearch(primes, 73)
+
+console.log(result)
