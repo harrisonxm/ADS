@@ -155,6 +155,14 @@ class Node{
 }
 
 
+
+
+
+
+
+// Test for Hashtable
+
+
 // function assert(bool) {
 //   if (bool) {
 //     return console.log("passed");
@@ -163,9 +171,6 @@ class Node{
 //   }
 // }
 
-
-
-//Test for Hashtable
 // let newLL = new LinkedList;
 // newLL.add("abc",2);
 // newLL.add("bcd",5);

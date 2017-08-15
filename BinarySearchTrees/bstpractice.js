@@ -5,6 +5,7 @@ function BST(value){
   this.right = null;
 }
 
+
 BST.prototype.insert = function(value){
     if(value <= this.value) {
       if(!this.left){
@@ -58,6 +59,28 @@ BST.prototype.depthFirstTraversal = function(iteratorFunc){
   if(this.right){
     this.right.depthFirstTraversal(iteratorFunc)
   }
+}
+
+//preorder - parent node touched first then left then right
+BST.prototype.depthFirstTraversal = function(iteratorFunc){
+  iteratorFunc(this.value);
+  if(this.left){
+    this.left.depthFirstTraversal(iteratorFunc)
+  }
+  if(this.right){
+    this.right.depthFirstTraversal(iteratorFunc)
+  }
+}
+
+//post-order - all left children node touched then right childen node then parent node
+BST.prototype.depthFirstTraversal = function(iteratorFunc){
+  if(this.left){
+    this.left.depthFirstTraversal(iteratorFunc)
+  }
+  if(this.right){
+    this.right.depthFirstTraversal(iteratorFunc)
+  }
+  iteratorFunc(this.value)
 }
 
 var bst = new BST(50);
