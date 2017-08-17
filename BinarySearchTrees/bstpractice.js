@@ -121,16 +121,19 @@ BST.prototype.getMaxVal = function(){
 }
 
 BST.prototype.remove = function(value){
+  //if no root, return
   if(!this){
     return this;
   }
   if(value < this.value){
+    //once reaches end of left, if not value not there, value does not exist
     if(!this.left){
       return;
     }
     this.left = this.left.remove(value);
   }
   else if(value > this.value){
+    //once reaches end of right, if not value not there, value does not exist
     if(!this.right){
       return;
     }
@@ -182,4 +185,10 @@ bst.inorderdepthFirstTraversal(log);
 
 console.log('delete 32');
 bst.remove(32);
+bst.inorderdepthFirstTraversal(log);
+
+console.log('delete 32');
+bst.remove(49);
+bst.remove(48);
+bst.remove(42);
 bst.inorderdepthFirstTraversal(log);
