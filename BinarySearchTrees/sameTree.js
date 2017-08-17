@@ -1,3 +1,4 @@
+//check to see if two trees are same
 var isSameTree = function(p, q) {
     if(!p && !q){
         return true;
