@@ -160,13 +160,18 @@ BST.prototype.remove = function(value){
   return this;
 }
 
-var bst = new BST(50);
-bst.insert(30)
-bst.insert(20)
+var bst = new BST(30);
+
 bst.insert(40)
 bst.insert(70)
-bst.insert(60)
 bst.insert(80)
+bst.insert(100)
+bst.insert(90)
+bst.insert(120)
+bst.insert(110)
+bst.insert(115)
+bst.insert(105)
+bst.insert(107)
 
 
 
@@ -174,21 +179,25 @@ function log(value){
   console.log(value)
 }
 
+bst.remove(100)
 
-console.log('delete 20');
-bst.remove(20);
-bst.inorderdepthFirstTraversal(log);
+console.log(bst.right.right.right.right.right.left)
 
-console.log('delete 30');
-bst.remove(30);
-bst.inorderdepthFirstTraversal(log);
-
-console.log('delete 32');
-bst.remove(32);
-bst.inorderdepthFirstTraversal(log);
-
-console.log('delete 32');
-bst.remove(49);
-bst.remove(48);
-bst.remove(42);
-bst.inorderdepthFirstTraversal(log);
+//
+// console.log('delete 20');
+// bst.remove(20);
+// bst.inorderdepthFirstTraversal(log);
+//
+// console.log('delete 30');
+// bst.remove(30);
+// bst.inorderdepthFirstTraversal(log);
+//
+// console.log('delete 32');
+// bst.remove(32);
+// bst.inorderdepthFirstTraversal(log);
+//
+// console.log('delete 32');
+// bst.remove(49);
+// bst.remove(48);
+// bst.remove(42);
+// bst.inorderdepthFirstTraversal(log);
