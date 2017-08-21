@@ -136,36 +136,75 @@ class BST {
       return this.findNode(value, node.right);
     }
   }
+  minDepth(node = this.root){
+    if(!node){
+      return 0;
+    }
+    if(!node.left && !node.right){
+      return 1;
+    }
+    else if(!node.left){
+      return this.minDepth(node.right)+1;
+    }
+    else if(!node.right){
+      return this.minDepth(node.left)+1;
+    }
+    return Math.min(this.minDepth(node.left), this.minDepth(node.right))+1;
+  }
+  maxDepth(node = this.root){
+    if(!node){
+      return 0;
+    }
+    if(!node.left && !node.right){
+      return 1;
+    }
+    else if(!node.right){
+      return this.maxDepth(node.left)+1;
+    }
+    else if(!node.left){
+      return this.maxDepth(node.right)+1;
+    }
+    return Math.max(this.maxDepth(node.left), this.maxDepth(node.right))+1
+  }
 }
 
 
 var bst = new BST();
+// bst.insert(30)
+// bst.insert(40)
+// bst.insert(70)
+// bst.insert(80)
+// bst.insert(100)
+// bst.insert(90)
+// bst.insert(120)
+// bst.insert(110)
+// bst.insert(115)
+// bst.insert(105)
+// bst.insert(107)
 bst.insert(30)
+bst.insert(20)
+bst.insert(10)
 bst.insert(40)
-bst.insert(70)
-bst.insert(80)
-bst.insert(100)
-bst.insert(90)
-bst.insert(120)
-bst.insert(110)
-bst.insert(115)
-bst.insert(105)
-bst.insert(107)
+bst.insert(50)
+bst.insert(51)
 
 function log(value){
   console.log(value)
 }
 
-console.log('in-order')
-bst.depthFirstTraversal('in-order', log)
-console.log('pre-order')
-bst.depthFirstTraversal('pre-order', log)
-console.log('post-order')
-bst.depthFirstTraversal('post-order', log)
-console.log('breadthFirstTraversal')
-bst.breadthFirstTraversal(log)
+// console.log('in-order')
+// bst.depthFirstTraversal('in-order', log)
+// console.log('pre-order')
+// bst.depthFirstTraversal('pre-order', log)
+// console.log('post-order')
+// bst.depthFirstTraversal('post-order', log)
+// console.log('breadthFirstTraversal')
+// bst.breadthFirstTraversal(log)
 
 
-bst.remove(100);
+// bst.remove(100);
 // console.log(bst.root.right.right.right.right.right.left)
-console.log(bst.findNode(100))
+// console.log(bst.findNode(100))
+
+console.log(bst.minDepth())
+console.log(bst.maxDepth())
