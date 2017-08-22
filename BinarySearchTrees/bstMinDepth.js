@@ -205,6 +205,6 @@ function log(value){
 // bst.remove(100);
 // console.log(bst.root.right.right.right.right.right.left)
 // console.log(bst.findNode(100))
-
-console.log(bst.minDepth())
+//
+// console.log(bst.minDepth())
 console.log(bst.maxDepth())
