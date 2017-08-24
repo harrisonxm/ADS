@@ -35,7 +35,7 @@ class maxHeap{
       let left = i * 2;
       let right = i * 2 + 1;
       while(this.heap[i] <= this.heap[left] || this.heap[i] <= this.heap[right]){
-        if(this.heap[left] < (this.heap[right]){
+        if(this.heap[left] < this.heap[right]){
           [this.heap[i] , this.heap[left]] = [this.heap[left] , this.heap[i]];
           i = i * 2;
         }
@@ -43,10 +43,29 @@ class maxHeap{
           [this.heap[i] , this.heap[right]] = [this.heap[right] , this.heap[i]];
           i = i * 2 + 1;
         }
+        left = 2 * i;
+        right = 2 * i + 1;
+        if(this.heap[left] === undefined || this.heap[right] === undefined){
+          break;
+          }
+        }
       }
+      else if(this.heap.length === 2){
+        this.heap.splice(1,1);
+      }
+      else{
+        return null;
+      }
+      return largest;
+    }
+    sort(){
+        let sortedMaxArr = [];
+        while(this.heap.length > 1){
+          sortedMaxArr.push(this.heap.remove());
+        }
+        return sortedMaxArr;
     }
   }
-}
 
 let heap = new maxHeap;
 heap.insert(50)
@@ -54,4 +73,16 @@ heap.insert(40)
 heap.insert(55)
 heap.insert(20)
 heap.insert(30)
-console.log(heap)
+heap.remove()
+heap.remove()
+console.log(heap.heap.sort())
+
+//Max Heap: Almost complete BST, root node always is Max, parent node always larger than children nodes
+
+//Big O
+//worst : (n log n)
+
+//Good For
+//quick access to max or min;
+//insertion is relatively fast
+//used for priority queues, schedulers , order statiscs

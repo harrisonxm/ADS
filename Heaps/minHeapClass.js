@@ -1,4 +1,6 @@
-
+//parent = Math.floor(i/2)
+//left child = i*2
+//right child = i*3
 
 class minHeap {
   constructor(){
@@ -82,6 +84,8 @@ heap.insert(2)
 
 
 console.log(heap.heap);
+
+//Min Heap: Almost complete BST, root node always is Min, parent node always smaller than children nodes
 
 //The value of each child node is greater then or equal to
 //the value of its parent, the min val is at the root
