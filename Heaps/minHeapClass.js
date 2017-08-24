@@ -27,12 +27,17 @@ class minHeap {
     };
   }
   remove(){
+    //always remove smallest node
     let smallest = this.heap[1];
+    //if more than two nodes in heap
     if(this.heap.length > 2){
+      //set first element in heap to last nast element
       this.heap[1] = this.heap[this.heap.length-1];
+      //now remove last element space , no longer needed
       this.heap.splice(this.heap.length-1);
-      //only 2 elements left in array
+      //only 2 elements left in heap
       if(this.heap.length === 3){
+        //if one bigger than the other swap them
         if(this.heap[1] > this.heap[2]){
           [this.heap[1] , this.heap[2]] = [this.heap[2], this.heap[1]];
         }
@@ -67,16 +72,14 @@ class minHeap {
 }
 
 let heap = new minHeap();
-heap.insert(2);
-heap.insert(12)
-heap.insert(13)
-heap.insert(1)
+heap.insert(2)
 heap.insert(20)
-heap.insert(15)
+heap.insert(30)
+heap.insert(5)
 heap.insert(20)
-heap.insert(3)
-heap.remove()
-heap.remove()
+heap.insert(7)
+heap.insert(2)
+
 
 console.log(heap.heap);
 
