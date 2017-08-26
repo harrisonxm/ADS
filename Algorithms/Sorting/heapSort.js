@@ -1,11 +1,11 @@
 
-// let buildMaxHeap = function(arr){
-//   let hsize = arr.length;
-//   let nonleaf = Math.floor(arr.length/2)-1;
-//   for(let i = nonleaf; i > -1; i--){
-//     maxHeapify(arr,hsize,i);
-//   }
-// }
+let buildMaxHeap = function(arr){
+  let hsize = arr.length;
+  let nonleaf = Math.floor(arr.length/2)-1;
+  for(let i = nonleaf; i > -1; i--){
+    maxHeapify(arr,hsize,i);
+  }
+}
 
 let maxHeapify = function(a,hsize,idx){
   let left = 2 * idx + 1;
@@ -67,32 +67,9 @@ let heapSort2 = function(arr){
   }
 }
 
-//extract method
-let extractMax = function(a){
-  let heapsize = a.length;
-  if(heapsize < 1){
-    return;
-  }
-  let max = a[0];
-  a[0] = a[heapsize-1];
-  a.length = a.length-1;
-  heapsize = a.length;
-  maxHeapify(a,heapsize,0)
-  return max;
-}
-
 let arr1 = [5,2,10,12,20,15,19,20];
 heapSort2(arr1)
 console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
-
-
-
 
 
 //Almost complete BST properties:
