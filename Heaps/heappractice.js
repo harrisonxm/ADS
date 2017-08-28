@@ -1,13 +1,5 @@
 
-let maxOrder = function(a,b){
-  return a > b;
-}
-
-let minOrder = function(a,b){
-  return a < b;
-}
-
-let maxHeapify = function(a,hsize,idx){
+let maxHeapifyDown = function(a,hsize,idx){
   let left = 2 * idx + 1;
   let right = 2 * idx + 2;
   let largest = idx;
@@ -19,7 +11,32 @@ let maxHeapify = function(a,hsize,idx){
   }
   if(largest != idx){
     [a[idx], a[largest]] = [a[largest], a[idx]];
-    maxHeapify(a,hsize,largest)
+    maxHeapifyDown(a,hsize,largest)
+  }
+}
+
+let insert = function(arr,num){
+  arr.push(num);
+  if(arr.length > 1){
+    const idx = arr.length-1;
+    maxHeapifyUp(arr, arr.length, idx);
+  }
+}
+
+let maxHeapifyUp = function(a,hsize,childIdx){
+  if(childIdx <= 0){
+    return;
+  }
+  let parentIdx = Math.round(childIdx/2)-1;
+  let largest = parentIdx;
+  if(childIdx < hsize && a[childIdx] > a[parentIdx]){
+    largest = childIdx;
+  }
+  if(largest !== parentIdx){
+    let temp = a[childIdx];
+    a[childIdx] = a[parentIdx];
+    a[parentIdx] = temp;
+    maxHeapifyUp(a,hsize,parentIdx);
   }
 }
 
@@ -45,12 +62,12 @@ let heapSort1 = function(arr){
   let nonleaf = Math.floor(arr.length/2)-1;
 
   for(let i = nonleaf; i > -1; i--){
-    maxHeapify(arr,hsize,i);
+    maxHeapifyDown(arr,hsize,i);
   }
 
   for(let i=hsize-1; i > 0; i--){
     [arr[i], arr[0]] = [arr[0], arr[i]];
-    maxHeapify(arr,i,0);
+    maxHeapifyDown(arr,i,0);
   }
 }
 
@@ -83,17 +100,22 @@ let extractMax = function(a){
   return max;
 }
 
-let arr1 = [5,2,10,12,20,15,19,20];
-heapSort2(arr1)
-console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
-extractMax(arr1);
-console.log(arr1)
+let arr1 = [];
+insert(arr1,2)
+insert(arr1,5)
+insert(arr1,20)
+insert(arr1,30)
+insert(arr1,50)
+insert(arr1,7)
+insert(arr1,2)
+insert(arr1,200)
 
+for(let i = 3; i > -1; i--){
+  maxHeapifyDown(arr1,arr1.length,i);
+}
+// heapSort1(arr1)
 
+console.log(arr1)
 
 
 
