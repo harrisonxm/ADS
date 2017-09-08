@@ -208,3 +208,11 @@ function log(value){
 //
 // console.log(bst.minDepth())
 console.log(bst.maxDepth())
+
+//left node of parent must always be smaller
+//right node of parent must always be larger
+
+//Used in many search applications where data is constantly entering/leaving, such as the map and set objects in many languages' libraries.
+// Big O
+//Average O(log n) for Search, Insert , Delete
+//Space (On)
