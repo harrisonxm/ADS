@@ -5,7 +5,13 @@ class Stack {
   }
   //adding element to top/end of stack
   push(element){
-    this.items.push(element);
+    if(this.items.length === 0 || element > this.max()){
+      let el = [element, element]
+      this.items.push(el);
+    }
+    else{
+      this.items.push([element, this.max()]);
+    }
   }
   //removing element from top;
   pop(){
@@ -30,6 +36,9 @@ class Stack {
   clear(){
     this.items = [];
   }
+  max(){
+    return this.items[this.items.length-1][1];
+  }
 }
 
 let stack = new Stack();
@@ -42,8 +51,8 @@ stack.push(5)
 stack.push(6)
 stack.push(7)
 stack.pop();
-console.log(stack.peek())
-console.log(stack.size())
-console.log(stack.isEmpty())
-stack.clear()
+// console.log(stack.peek())
+// console.log(stack.size())
+// console.log(stack.isEmpty())
+// stack.clear()
 console.log(stack)
