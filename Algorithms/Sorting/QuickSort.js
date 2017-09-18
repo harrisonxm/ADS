@@ -28,12 +28,12 @@
 
 
 
-
+//
 function partition(arr, low, high){
   let i = low-1;
   let pivot = arr[high];
 
-  for(var j = low; j < arr.length-1; j++){
+  for(var j = low; j < high; j++){
     if(arr[j] <= pivot){
       i++;
       [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -55,8 +55,6 @@ let array = [10, 7, 8, 9, 1, 5];
 quickSort(array, 0, array.length-1);
 
 console.log(array)
-
-
 
 
 

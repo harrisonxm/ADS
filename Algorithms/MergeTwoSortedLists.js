@@ -35,6 +35,7 @@ let i3 = new listNode(7)
 let i4 = new listNode(3)
 let i5 = new listNode(11)
 
+
 i1.next = i2;
 i2.next = i3;
 i4.next = i5;

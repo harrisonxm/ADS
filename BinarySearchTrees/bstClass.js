@@ -170,23 +170,15 @@ class BST {
 
 
 var bst = new BST();
-// bst.insert(30)
-// bst.insert(40)
-// bst.insert(70)
-// bst.insert(80)
-// bst.insert(100)
-// bst.insert(90)
-// bst.insert(120)
-// bst.insert(110)
-// bst.insert(115)
-// bst.insert(105)
-// bst.insert(107)
+
 bst.insert(30)
 bst.insert(20)
 bst.insert(10)
 bst.insert(40)
 bst.insert(50)
 bst.insert(51)
+
+bst.maxDepth();
 
 function log(value){
   console.log(value)

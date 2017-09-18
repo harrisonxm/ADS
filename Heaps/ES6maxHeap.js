@@ -77,6 +77,6 @@ heap.insert(7)
 heap.insert(2)
 heap.insert(200)
 
-
 heap.heapSort();
+
 console.log(heap)

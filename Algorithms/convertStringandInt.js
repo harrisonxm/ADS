@@ -32,5 +32,5 @@ function stringToInt(str){
 }
 
 
-// let string = '-12345'
-// console.log(stringToInt(string))
+let string = '-12345'
+console.log(stringToInt(string))
